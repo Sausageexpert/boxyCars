@@ -25,11 +25,13 @@ function draw() {
 
   // telling the car when to stop
 
-  if (wall.x - car.x < wall.width/2 + car.width/2 && weight*speed*speed/5000 < 160000){
-   car.velocityX = 0;
-   car.shapeColor = color(0, 0, 255);
-  }
-
+  
+ if (wall.x - car.x < wall.width/2 + car.width/2){
+   var deformation=0.5 * weight * speed* speed/22509;
+	if(deformation>180)
+	{
+		car.shapeColor=color(255,0,0);
+	}
   if (wall.x - car.x < wall.width/2 + car.width/2 && weight*speed*speed/5000 > 160000){
     car.velocityX = 0;
     car.shapeColor = color(0, 255, 0);
